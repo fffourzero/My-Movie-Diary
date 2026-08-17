@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Movie Diary ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="hero">
+
+        <div class="heart-decoration">♡</div>
+
+        <p class="small-title">MY LITTLE MOVIE CORNER</p>
+
+        <h1>Red's Movie Diary</h1>
+
+        <p class="subtitle">
+            movies i've watched, loved, and had thoughts about ♡
+        </p>
+
+        <div class="header-line"></div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- ADD MOVIE -->
+
+        <section class="add-section">
+
+            <div class="section-title">
+                <span>♡</span>
+                <h2>Add a Movie</h2>
+                <span>♡</span>
+            </div>
+
+            <p class="section-subtitle">
+                Tell me about the movie you just watched
+            </p>
+
+
+            <div class="form-group">
+
+                <label>Movie Title</label>
+
+                <input
+                    type="text"
+                    id="movieTitle"
+                >
+
+            </div>
+
+
+            <div class="two-columns">
+
+             <div class="form-group">
+
+    <label>Genres ♡</label>
+
+    <div class="genre-options">
+
+        <label class="genre-option">
+            <input type="checkbox" value="Romance">
+            <span>♡ Romance</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Comedy">
+            <span>♡ Comedy</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Drama">
+            <span>♡ Drama</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Horror">
+            <span>♡ Horror</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Thriller">
+            <span>♡ Thriller</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Action">
+            <span>♡ Action</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Fantasy">
+            <span>♡ Fantasy</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Science Fiction">
+            <span>♡ Sci-Fi</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Mystery">
+            <span>♡ Mystery</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Animation">
+            <span>♡ Animation</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Musical">
+            <span>♡ Musical</span>
+        </label>
+
+        <label class="genre-option">
+            <input type="checkbox" value="Documentary">
+            <span>♡ Documentary</span>
+        </label>
+
+    </div>
+
+</div>
+
+                <div class="form-group">
+
+                    <label>Poster URL</label>
+
+                    <input
+                        type="text"
+                        id="moviePoster"
+                        placeholder="Paste image URL"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- HEART RATING -->
+
+            <div class="rating-section">
+
+                <label>How much did I love it?</label>
+
+                <div class="hearts" id="heartRating">
+
+                    <span class="heart" data-rating="1">♡</span>
+                    <span class="heart" data-rating="2">♡</span>
+                    <span class="heart" data-rating="3">♡</span>
+                    <span class="heart" data-rating="4">♡</span>
+                    <span class="heart" data-rating="5">♡</span>
+
+                </div>
+
+                <p id="ratingText">
+                    Click the hearts to rate
+                </p>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>My Insight</label>
+
+                <textarea
+                    id="movieReview"
+                    placeholder="What did you think about the movie? What did it make you feel or realize?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="two-columns">
+
+                <div class="form-group">
+
+                    <label>What I Liked ♡</label>
+
+                    <textarea
+                        id="movieLikes"
+                        placeholder="Characters, story, acting..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>What I Didn't Like</label>
+
+                    <textarea
+                        id="movieDislikes"
+                        placeholder="Things I didn't enjoy..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button class="add-button" onclick="addMovie()">
+                + Add to My Movie Diary
+            </button>
+
+        </section>
+
+
+
+        <!-- MOVIE COLLECTION -->
+
+        <section class="collection">
+
+            <div class="collection-header">
+
+                <div>
+
+                    <p class="small-title">MY COLLECTION</p>
+
+                    <h2>Movies I've Watched</h2>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="searchMovie"
+                    placeholder="♡ Search movies..."
+                    onkeyup="displayMovies()"
+                >
+
+            </div>
+
+
+            <div id="movieList"></div>
+
+
+            <div id="emptyMessage" class="empty-message">
+
+                <div>♡</div>
+
+                <h3>Your movie diary is empty</h3>
+
+                <p>
+                    Add your first movie above and start your collection!
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            made with ♡ and too many movies
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
